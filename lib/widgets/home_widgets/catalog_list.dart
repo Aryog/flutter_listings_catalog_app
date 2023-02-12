@@ -2,7 +2,7 @@ import 'package:catalog_application/pages/home_detail_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/catalog.dart';
-import '../themes.dart';
+import 'add_to_cart.dart';
 import 'catalog_image.dart';
 
 class CatalogList extends StatelessWidget {
@@ -13,7 +13,7 @@ class CatalogList extends StatelessWidget {
     return ListView.builder(
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.getByPosition(index);
+        final catalog = CatalogModel.items[index];
         return InkWell(
             onTap: () => Navigator.push(
                 context,
@@ -80,20 +80,7 @@ class CatalogItem extends StatelessWidget {
                   ),
                   Container(
                     padding: EdgeInsets.only(right: 10),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                              Theme.of(context).buttonColor),
-                          shape: MaterialStateProperty.all(StadiumBorder())),
-                      child: Text(
-                        "Buy",
-                        textScaleFactor: 1,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                    child: AddToCart(catalog: catalog),
                   )
                 ],
               )

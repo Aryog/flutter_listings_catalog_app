@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../themes.dart';
-
 class CatalogHeader extends StatelessWidget {
   const CatalogHeader({super.key});
 
